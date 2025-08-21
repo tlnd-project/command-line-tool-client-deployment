@@ -110,7 +110,7 @@ remove_safely_directory(){
 	esac
 
 	# the user can defined the work safely path
-
+  # the $directory_base is interpreted as a regular expression.
 	if [[ ! "$directory_to_remove" =~ $directory_base ]];
 	then
 		log_error "[rsd]: The directory $directory_to_remove can not removed"
