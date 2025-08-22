@@ -50,7 +50,7 @@ source "$EXECUTION_DIR/.env_source_code"
 
 BRANCH_NAME=$1
 NOW=`date +%Y%m%d_%H%M%S`
-BASE_WORK_DIRECTORY="/apps/TAL/Script"
+BASE_WORK_DIRECTORY="/apps/TAL/Scripts"
 NAME_DIRECTORY_PROJECT="tac-automation"
 NAME_DIRECTORY_DEPLOYMENT="tac-automation-deployment"
 PATH_PROJECT_TAC_AUTOMATION="${BASE_WORK_DIRECTORY}/${NAME_DIRECTORY_PROJECT}"
@@ -78,11 +78,14 @@ download_project_tar_gz_user_bitbucket "$BITBUCKET_DOMAIN" "$token" "$BITBUCKET_
                                        "$PATH_PROJECT_TAR_GZ"
 
 log_info "step 3 unzip project.tar.gz"
-tar -xzf "$PATH_PROJECT_TAR_GZ" -C $BASE_WORK_DIRECTORY
+mkdir -p "$PATH_PROJECT_TAC_AUTOMATION"
+tar -xzf "$PATH_PROJECT_TAR_GZ" -C $PATH_PROJECT_TAC_AUTOMATION
 rm "$PATH_PROJECT_TAR_GZ"
 
-log_info "step 4 move the .env_keys"
-mv "$PATH_ENV_KEYS" $PATH_PROJECT_TAC_AUTOMATION
+log_info "step 4 copy the .env_keys and dtcc_bbk.key"
+cp "$PATH_ENV_KEYS" $PATH_PROJECT_TAC_AUTOMATION
+cp "$PATH_DTCC_BBK_KEY" "$PATH_PROJECT_TAC_AUTOMATION/.cache"
+
 
 log_info "step 5 set up the project"
 # === > Download the project < ===

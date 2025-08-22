@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source ./logger.sh
+EXECUTION_DIR="$(dirname "$(readlink -f "$0")")"
+source "$EXECUTION_DIR/lib/logger.sh"
 
 # ===> avoids double importation
 if [[ -n "${__BITBUCKET_IMPORTED__:-}" ]]; then

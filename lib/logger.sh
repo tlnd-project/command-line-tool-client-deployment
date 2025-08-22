@@ -1,5 +1,7 @@
 #!/bin/bash
 
+EXECUTION_DIR="$(dirname "$(readlink -f "$0")")"
+
 # ===> avoids double importation
 if [[ -n "${__LOGGER_IMPORTED__:-}" ]]; then
   return
@@ -8,7 +10,7 @@ __LOGGER_IMPORTED__=1
 
 # === > start the script
 LOG_LEVEL=${LOG_LEVEL:-"INFO"}
-LOG_FILE=${LOG_FILE:-"./logs/out.log"}
+LOG_FILE=${LOG_FILE:-"$EXECUTION_DIR/logs/out.log"}
 
 declare -A LOG_LEVELS=(
   ["ERROR"]=0
