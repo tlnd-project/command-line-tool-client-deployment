@@ -25,19 +25,19 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
-if [[ -f "$PATH_DTCC_JAR" ]]; then
+if [[ ! -f "$PATH_DTCC_JAR" ]]; then
   echo "The file 'dtcc.jar' is necessary"
   exit 1
 fi
-if [[ -f "$PATH_DTCC_BBK_KEY" ]]; then
+if [[ ! -f "$PATH_DTCC_BBK_KEY" ]]; then
   echo "The file 'dtcc_bbk.key' is necessary"
   exit 1
 fi
-if [[ -f "$PATH_ENV_KEYS" ]]; then
+if [[ ! -f "$PATH_ENV_KEYS" ]]; then
   echo "The file '.env_keys' is necessary"
   exit 1
 fi
-if [[ -f "$PATH_ENV_SOURCE_CODE" ]]; then
+if [[ ! -f "$PATH_ENV_SOURCE_CODE" ]]; then
   echo "The file '.env_source_code' is necessary"
   exit 1
 fi
