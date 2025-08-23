@@ -7,10 +7,10 @@ EXECUTION_DIR="$(dirname "$(readlink -f "$0")")"
 mkdir -p "$EXECUTION_DIR/logs"
 
 # === > Imports < ===
-source /logger.sh
-source /bitbucket.sh
-source /tools.sh
-source .env
+source "$EXECUTION_DIR/lib/logger.sh"
+source "$EXECUTION_DIR/lib/bitbucket.sh"
+source "$EXECUTION_DIR/lib/tools.sh"
+source "$EXECUTION_DIR/.env"
 
 # === > Check the user < ===
 check_user_run_script "$USER_EXECUTE"
