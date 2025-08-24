@@ -38,7 +38,7 @@ setup_virtual_environment_with_nexus(){
     python3 -m venv $virtual_venv
   fi
   source $virtual_venv/bin/activate
-  pip install --update pip -i $dtcc_nexus_repo --trusted-host $dtcc_nexus_host
+  pip install --upgrade pip -i $dtcc_nexus_repo --trusted-host $dtcc_nexus_host
   pip install -r $virtual_fullpath_directory_install/requirements.txt -i $dtcc_nexus_repo --trusted-host $dtcc_nexus_host
 
 }
